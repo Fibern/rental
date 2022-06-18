@@ -1,0 +1,46 @@
+﻿<Window x:Class="rental.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rental"
+        xmlns:viewsleft="clr-namespace:rental.View.Left"
+        xmlns:viewsright="clr-namespace:rental.View.Right"
+        xmlns:viewModels="clr-namespace:rental.ViewModel"
+        xmlns:viewModelsleft="clr-namespace:rental.ViewModel.Left"
+        xmlns:viewModelsright="clr-namespace:rental.ViewModel.Right"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Column="0"
+                        Content="{Binding SelectedLeft}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModelsleft:SideMenuViewModel}">
+                    <viewsleft:SideMenu/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModelsleft:UserMenuViewModel}">
+                    <viewsleft:UserMenu/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+
+        <ContentControl Grid.Column="1"
+                        Content="{Binding SelectedRight}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModelsright:LoginViewModel}">
+                    <viewsright:Login/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModelsright:UserMainViewModel}">
+                    <viewsright:UserMain/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</Window>
