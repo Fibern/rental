@@ -8,6 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="160"
              Background="IndianRed">
     <Grid>
-        <TextBlock Text="UserMenu"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="Username" HorizontalAlignment="Center"/>
+        
+        <ListBox Grid.Row="1" ItemsSource="{Binding Items}" Background="IndianRed">
+            
+        </ListBox>
     </Grid>
 </UserControl>

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace rental.ViewModel.Left
 {
-    public class UserMenuViewModel: BaseViewModel
+    public class UserMenuViewModel : BaseViewModel
     {
+        private List<string> _items = new List<string>() { "ajda", "adada" };
+        public List<string> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value;
+            }
+        }
     }
 }
