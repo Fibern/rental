@@ -28,7 +28,7 @@
 
         <Button Width="100"
                 Height="30"
-                Content="Login"
+                Content="Zaloguj"
                 Command="{Binding LoginCommand}"
                 Grid.Row="3"/>
         

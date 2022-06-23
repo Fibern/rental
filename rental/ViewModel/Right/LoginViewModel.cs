@@ -14,7 +14,8 @@ namespace rental.ViewModel.Right
         public ICommand LoginCommand { get; }
         public LoginViewModel(NavigationStore navigationStore)
         {
-            LoginCommand = new LoginCommand(navigationStore);
+            LoginCommand = new NavigateLeftCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
+            LoginCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
         }
     }
 }
