@@ -11,6 +11,7 @@ namespace rental.Entities
 {
     public class Reservation
     {
+        public Reservation() { }
         public Reservation(User user, Car car, DateTime returnDate)
         {
             ReservationDate = DateTime.Now;
