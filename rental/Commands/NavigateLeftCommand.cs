@@ -24,7 +24,7 @@ namespace rental.Commands
 
         public override void Execute(object parameter)
         {
-            _navigationStore.SelectedLeft = new UserMenuViewModel();
+            _navigationStore.SelectedLeft = _createViewModel();
         }
 
     }

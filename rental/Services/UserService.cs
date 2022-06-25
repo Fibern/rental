@@ -63,5 +63,17 @@ namespace rental.Services
                 return user;
             }
         }
+
+        public async Task<bool> verify(string login, string password)
+        {
+            using (RentalDbContext context = _contextFactory.CreateDbContext())
+            {
+                User user = await context.Users.FirstOrDefaultAsync((u) => u.Login.Equals(login));
+                    if (user != null)
+                        if (user.Password.Equals(password))
+                            return true;
+                    return false;
+                }
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace rental.Services
 
         Task<bool> DeleteUser(String login);
 
+        Task<bool> verify(string login, string password);
+
 
     }
 }

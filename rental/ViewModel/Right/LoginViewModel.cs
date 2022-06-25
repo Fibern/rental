@@ -1,5 +1,6 @@
 ﻿using rental.Commands;
 using rental.Stores;
+using rental.ViewModel.Left;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,24 @@ namespace rental.ViewModel.Right
 {
     public class LoginViewModel: BaseViewModel
     {
-        public ICommand LoginCommand { get; }
+        public ICommand LoginCommand { get; set; }
+
+        private AuthenticationStore _authenticationStore;
+        public string Password
+        {
+            get => _authenticationStore.Password;
+            set => _authenticationStore.Password = value;
+        }
+
+        public string Login { 
+            get => _authenticationStore.Login;
+            set => _authenticationStore.Login = value; }
+
         public LoginViewModel(NavigationStore navigationStore)
         {
-            LoginCommand = new NavigateLeftCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
-            LoginCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
+            _authenticationStore = new AuthenticationStore();
+            LoginCommand = new LoginCommand<UserMenuViewModel, UserMainViewModel>(navigationStore, () => new UserMenuViewModel(), () => new UserMainViewModel(), _authenticationStore);
         }
+
     }
 }
