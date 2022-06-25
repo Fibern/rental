@@ -12,6 +12,7 @@ namespace rental.Stores
         private static string _usersPath = "../../../Resources/users.Json";
         public static List<User> Users { 
             get => Serializer<List<User>>.Deserialize(_usersPath);
+            set => Serializer<List<User>>.Serialize(value, _usersPath);
         }
         
     }
