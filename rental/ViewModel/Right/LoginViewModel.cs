@@ -15,15 +15,16 @@ namespace rental.ViewModel.Right
         public ICommand LoginCommand { get; set; }
 
         private AuthenticationStore _authenticationStore;
-        public string Password
-        {
+        public string Password 
+        { 
             get => _authenticationStore.Password;
-            set => _authenticationStore.Password = value;
+            set => _authenticationStore.Password = value; 
         }
-
-        public string Login { 
+        public string Login 
+        {
             get => _authenticationStore.Login;
-            set => _authenticationStore.Login = value; }
+            set => _authenticationStore.Login = value;
+        }
 
         public LoginViewModel(NavigationStore navigationStore)
         {

@@ -1,4 +1,5 @@
-﻿using rental.Stores;
+﻿using rental.DataTypes;
+using rental.Stores;
 using rental.ViewModel;
 using rental.ViewModel.Left;
 using rental.ViewModel.Right;

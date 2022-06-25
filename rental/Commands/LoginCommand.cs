@@ -1,4 +1,4 @@
-﻿using rental.Services;
+﻿using rental.DataTypes;
 using rental.Stores;
 using rental.ViewModel;
 using System;
@@ -16,7 +16,7 @@ namespace rental.Commands
         private readonly NavigationStore _navigationStore;
         private readonly Func<TViewModelLeft> _leftViewModel;
         private readonly Func<TViewModelRight> _rightViewModel;
-        private AuthenticationStore _authenticationStore;
+        private readonly AuthenticationStore _authenticationStore;
 
         public LoginCommand(NavigationStore navigationStore, Func<TViewModelLeft> left, Func<TViewModelRight> right, AuthenticationStore authenticationStore)
         {
@@ -24,14 +24,25 @@ namespace rental.Commands
             _leftViewModel = left;
             _rightViewModel = right;
             _authenticationStore = authenticationStore;
-
         }
 
         public override void Execute(object parameter)
         {
-            
+            User user = authorize();
+            if (user is null)
+                return;
             _navigationStore.SelectedLeft = _leftViewModel();
             _navigationStore.SelectedRight = _rightViewModel();
+        }
+
+        private User authorize()
+        {
+            List<User> users = ResourcesStore.Users;
+            foreach(User u in users)
+            {
+                if (u.Login == _authenticationStore.Login && u.Password == _authenticationStore.Password) return u;
+            }
+            return null;
         }
 
     }
