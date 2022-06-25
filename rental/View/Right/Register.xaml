@@ -20,18 +20,19 @@
                  Height="30"
                  Grid.Row="1"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Login}"/>
+                 Text="{Binding Path=Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBox Width="200"
+        <PasswordBox Width="200"
                  Height="30"
                  Grid.Row="2"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                 Name="pwd"/>
 
         <Button Width="100"
                 Height="30"
                 Content="Zarejsetruj"
                 Command="{Binding RegisterCommand}"
+                CommandParameter="{Binding ElementName=pwd}"
                 Grid.Row="3"/>
     </Grid>
 </UserControl>

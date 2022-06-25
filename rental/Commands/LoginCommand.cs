@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace rental.Commands
 {
@@ -28,6 +29,8 @@ namespace rental.Commands
 
         public override void Execute(object parameter)
         {
+            var passwordBox = parameter as PasswordBox;
+            _authenticationStore.Password = passwordBox.Password;
             User user = authorize();
             if (user is null)
                 return;

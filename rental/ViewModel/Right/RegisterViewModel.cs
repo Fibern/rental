@@ -15,11 +15,6 @@ namespace rental.ViewModel.Right
         public ICommand RegisterCommand { get; set; }
 
         private AuthenticationStore _authenticationStore;
-        public string Password
-        {
-            get => _authenticationStore.Password;
-            set => _authenticationStore.Password = value;
-        }
         public string Login
         {
             get => _authenticationStore.Login;

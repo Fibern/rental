@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace rental.Commands
@@ -24,6 +25,8 @@ namespace rental.Commands
         }
         public override bool CanExecute(object parameter)
         {
+            var passwordBox = parameter as PasswordBox;
+            _authenticationStore.Password = passwordBox.Password;
             List<User> users = ResourcesStore.Users;
             foreach (User u in users)
             {

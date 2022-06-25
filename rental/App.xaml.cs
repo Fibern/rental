@@ -23,7 +23,7 @@ namespace rental
             NavigationStore navigationStore = new NavigationStore();
 
             navigationStore.SelectedLeft = new SideMenuViewModel(navigationStore);
-            navigationStore.SelectedRight = new RegisterViewModel(navigationStore);
+            navigationStore.SelectedRight = new LoginViewModel(navigationStore);
 
             MainWindow = new MainWindow()
             {
