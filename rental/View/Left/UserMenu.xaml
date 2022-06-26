@@ -8,16 +8,85 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="160"
              Background="IndianRed">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="{TemplateBinding Content}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <TextBlock Text="{TemplateBinding Content}" TextDecorations="Underline" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="0" Text="Username" HorizontalAlignment="Center"/>
-        
-        <ListBox Grid.Row="1" ItemsSource="{Binding Items}" Background="IndianRed">
-            
-        </ListBox>
+        <TextBlock Grid.Row="0"
+                   Text="{Binding Username}" 
+                   HorizontalAlignment="Center"
+                   FontSize="20"
+                   Margin="0 0 0 5"
+                   Foreground="White"/>
+
+        <Button Width="Auto"
+                Height="Auto"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="5 0 0 0"
+                Content="Wypożycz"
+                Command="{Binding RentCommand}"
+                Grid.Row="1"/>
+
+        <Button Width="Auto"
+                Height="Auto"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="5 0 0 0"
+                Content="Wypożyczone"
+                Command="{Binding RentedCommand}"
+                Grid.Row="2"/>
+
+        <Button Width="Auto"
+                Height="Auto"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="5 0 0 0"
+                Content="Profil"
+                Command="{Binding ProfileCommand}"
+                Grid.Row="3"/>
+
+        <Button Width="Auto"
+                Height="Auto"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="5 0 0 0"
+                Content="Wyloguj"
+                Command="{Binding LogoutCommand}"
+                Grid.Row="4" Cursor="Hand"/>
     </Grid>
 </UserControl>

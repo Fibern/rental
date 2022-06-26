@@ -1,4 +1,5 @@
 ﻿using rental.Commands;
+using rental.DataTypes;
 using rental.Stores;
 using rental.ViewModel.Left;
 using System;
@@ -24,7 +25,10 @@ namespace rental.ViewModel.Right
         public LoginViewModel(NavigationStore navigationStore)
         {
             _authenticationStore = new AuthenticationStore();
-            LoginCommand = new LoginCommand<UserMenuViewModel, UserMainViewModel>(navigationStore, () => new UserMenuViewModel(), () => new UserMainViewModel(), _authenticationStore);
+            UserStore userStore = new UserStore();
+            LoginCommand = new LoginCommand<UserMenuViewModel, UserMainViewModel>(navigationStore, userStore,
+                () => new UserMenuViewModel(navigationStore, userStore),
+                () => new UserMainViewModel(), _authenticationStore);
         }
 
     }

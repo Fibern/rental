@@ -8,13 +8,13 @@ namespace rental.DataTypes
 {
     public class User
     {
-        public string Login { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
         public Decimal Balance { get; set; }
         public User(){}
-        public User(string login, string password, decimal balance)
+        public User(string username, string password, decimal balance)
         {
-            Login = login;
+            Username = username;
             Password = password;
             Balance = balance;
         }

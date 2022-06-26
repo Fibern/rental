@@ -30,7 +30,7 @@ namespace rental.Commands
             List<User> users = ResourcesStore.Users;
             foreach (User u in users)
             {
-                if(u.Login == _authenticationStore.Login)
+                if(u.Username == _authenticationStore.Login)
                     return false; 
             }
             return true;

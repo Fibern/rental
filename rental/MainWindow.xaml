@@ -44,6 +44,16 @@
                 <DataTemplate DataType="{x:Type viewModelsright:RegisterViewModel}">
                     <viewsright:Register/>
                 </DataTemplate>
+
+
+                <DataTemplate DataType="{x:Type viewModelsright:AccountViewModel}">
+                    <viewsright:Account/>
+                </DataTemplate>
+
+
+                <DataTemplate DataType="{x:Type viewModelsright:RentedViewModel}">
+                    <viewsright:Rented/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

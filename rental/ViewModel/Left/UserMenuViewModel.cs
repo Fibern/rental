@@ -1,21 +1,31 @@
-﻿using System;
+﻿using rental.Commands;
+using rental.Stores;
+using rental.ViewModel.Right;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace rental.ViewModel.Left
 {
     public class UserMenuViewModel : BaseViewModel
     {
-        private List<string> _items = new List<string>() { "ajda", "adada" };
-        public List<string> Items
+        public ICommand LogoutCommand { get; set; }
+        public ICommand RentCommand { get; set; }
+        public ICommand RentedCommand { get; set; }
+        public ICommand ProfileCommand { get; set; }
+        public string Username { get; set; }
+        public UserStore userstore{ get; set; }
+        public UserMenuViewModel(NavigationStore navigationStore, UserStore userStore)
         {
-            get => _items;
-            set
-            {
-                _items = value;
-            }
+            userstore = userStore;
+            Username = userStore.User.Username;
+            LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore, () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
+            ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore, () => new AccountViewModel());
+            RentedCommand = new NavigateRightCommand<RentedViewModel>(navigationStore, () => new RentedViewModel());
+            RentCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
         }
     }
 }
