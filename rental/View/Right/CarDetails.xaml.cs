@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace rental.View.Right
 {
     /// <summary>
-    /// Logika interakcji dla klasy Rented.xaml
+    /// Logika interakcji dla klasy CarDetails.xaml
     /// </summary>
-    public partial class Rented : UserControl
+    public partial class CarDetails : UserControl
     {
-        public Rented()
+        public CarDetails()
         {
             InitializeComponent();
         }

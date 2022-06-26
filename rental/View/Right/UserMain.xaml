@@ -8,6 +8,31 @@
              d:DesignHeight="450" d:DesignWidth="640"
              Background="LightBlue">
     <Grid>
-        <TextBlock Text="UserMain"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding cars}" Margin="0 10 0 0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0" Background="White"
+                            Margin="10" Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="0"></TextBlock>
+                                    <TextBlock Text="{Binding Price}" Grid.Column="1"></TextBlock>
+                                    <Button Content="Więcej" 
+                                            Command="{Binding Path=DataContext.MoreCommand, 
+                                                              RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                            CommandParameter="{Binding Id}"
+                                            Grid.Column="2"></Button>
+                                </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace rental.Commands
@@ -48,6 +49,7 @@ namespace rental.Commands
             {
                 if (u.Username == _authenticationStore.Login && u.Password == _authenticationStore.Password) return u;
             }
+            MessageBox.Show("Błędny login lub hasło");
             return null;
         }
 

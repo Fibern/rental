@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -30,8 +31,11 @@ namespace rental.Commands
             List<User> users = ResourcesStore.Users;
             foreach (User u in users)
             {
-                if(u.Username == _authenticationStore.Login)
-                    return false; 
+                if (u.Username == _authenticationStore.Login)
+                {
+                    MessageBox.Show("Użytkownik o podanym loginie już istnieje");
+                    return false;
+                }
             }
             return true;
         }
@@ -39,9 +43,12 @@ namespace rental.Commands
         public override void Execute(object parameter)
         {
             if (_authenticationStore.Login == "" || _authenticationStore.Password == "")
+            {
+                MessageBox.Show("Login i hasło nie mogą pozostać puste");
                 return;
+            }
             List<User> users = ResourcesStore.Users;
-            users.Add(new User(_authenticationStore.Login, _authenticationStore.Password, 0));
+            users.Add(new User(users.Count, _authenticationStore.Login, _authenticationStore.Password, 0));
             ResourcesStore.Users = users;
             _navigationStore.SelectedRight = _viewModel();
         }

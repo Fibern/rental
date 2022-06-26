@@ -51,8 +51,8 @@
                 </DataTemplate>
 
 
-                <DataTemplate DataType="{x:Type viewModelsright:RentedViewModel}">
-                    <viewsright:Rented/>
+                <DataTemplate DataType="{x:Type viewModelsright:CarDetailsViewModel}">
+                    <viewsright:CarDetails/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

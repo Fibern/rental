@@ -16,16 +16,21 @@ namespace rental.ViewModel.Left
         public ICommand RentCommand { get; set; }
         public ICommand RentedCommand { get; set; }
         public ICommand ProfileCommand { get; set; }
-        public string Username { get; set; }
-        public UserStore userstore{ get; set; }
+        public string Username { get => _userstore.User.Username; }
+        private UserStore _userstore;
+        private CarStore _carStore;
         public UserMenuViewModel(NavigationStore navigationStore, UserStore userStore)
         {
-            userstore = userStore;
-            Username = userStore.User.Username;
-            LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore, () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
-            ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore, () => new AccountViewModel());
-            RentedCommand = new NavigateRightCommand<RentedViewModel>(navigationStore, () => new RentedViewModel());
-            RentCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel());
+            _userstore = userStore;
+            _carStore = new CarStore();
+            LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore, 
+                () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
+            ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore,
+                () => new AccountViewModel(navigationStore, userStore));
+            RentedCommand = new MoreCommand<CarDetailsViewModel>(navigationStore,
+                () => new CarDetailsViewModel(navigationStore, userStore, 0));
+            RentCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore,
+                () => new UserMainViewModel(navigationStore, userStore));
         }
     }
 }

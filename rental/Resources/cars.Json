@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 0,
+    "Price": 1,
+    "Name": "1",
+    "IsRented": false
+  },
+  {
+    "Id": 1,
+    "Price": 1,
+    "Name": "2",
+    "IsRented": false
+  },
+  {
+    "Id": 2,
+    "Price": 1,
+    "Name": "3",
+    "IsRented": false
+  },
+  {
+    "Id": 3,
+    "Price": 1,
+    "Name": "4",
+    "IsRented": false
+  },
+  {
+    "Id": 4,
+    "Price": 1,
+    "Name": "5",
+    "IsRented": false
+  },
+  {
+    "Id": 5,
+    "Price": 1,
+    "Name": "6",
+    "IsRented": false
+  },
+  {
+    "Id": 6,
+    "Price": 1,
+    "Name": "7",
+    "IsRented": false
+  },
+  {
+    "Id": 7,
+    "Price": 1,
+    "Name": "8",
+    "IsRented": false
+  },
+  {
+    "Id": 8,
+    "Price": 1,
+    "Name": "9",
+    "IsRented": false
+  }
+]

@@ -28,7 +28,8 @@ namespace rental.ViewModel.Right
             UserStore userStore = new UserStore();
             LoginCommand = new LoginCommand<UserMenuViewModel, UserMainViewModel>(navigationStore, userStore,
                 () => new UserMenuViewModel(navigationStore, userStore),
-                () => new UserMainViewModel(), _authenticationStore);
+                () => new UserMainViewModel(navigationStore, userStore),
+                _authenticationStore);
         }
 
     }

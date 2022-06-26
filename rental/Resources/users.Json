@@ -1,1 +1,32 @@
-[{"Username":"test","Password":"test","Balance":0},{"Username":"Marik1234","Password":"Zaq12wsx","Balance":0},{"Username":"user2137","Password":"JP2","Balance":2137},{"Username":"test2","Password":"test2","Balance":0}]
+[
+  {
+    "Id": 0,
+    "Username": "test",
+    "Password": "test",
+    "Balance": 0
+  },
+  {
+    "Id": 1,
+    "Username": "Marik1234",
+    "Password": "Zaq12wsx",
+    "Balance": 0
+  },
+  {
+    "Id": 2,
+    "Username": "user2137",
+    "Password": "JP2",
+    "Balance": 2137
+  },
+  {
+    "Id": 3,
+    "Username": "test2",
+    "Password": "test2",
+    "Balance": 0
+  },
+  {
+    "Id": 4,
+    "Username": "test3",
+    "Password": "test",
+    "Balance": 0
+  }
+]
