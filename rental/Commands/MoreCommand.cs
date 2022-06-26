@@ -12,14 +12,16 @@ namespace rental.Commands
         where TViewModel : BaseViewModel
     {
         private readonly NavigationStore _navigationStore;
+        private readonly UserStore _userStore;
         private readonly Func<TViewModel> _createViewModel;
         private CarStore _carStore;
 
-        public MoreCommand(NavigationStore navigationStore, Func<TViewModel> createViewModel, CarStore carStore)
+        public MoreCommand(NavigationStore navigationStore, UserStore userStore, CarStore carStore, Func<TViewModel> createViewModel)
         {
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
             _carStore = carStore;
+            _userStore = userStore;
         }
 
         public override void Execute(object parameter)

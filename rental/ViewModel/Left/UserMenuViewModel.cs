@@ -27,8 +27,8 @@ namespace rental.ViewModel.Left
                 () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
             ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore,
                 () => new AccountViewModel(navigationStore, userStore));
-            RentedCommand = new MoreCommand<CarDetailsViewModel>(navigationStore,
-                () => new CarDetailsViewModel(navigationStore, userStore, 0));
+            RentedCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, userStore, _carStore,
+                () => new CarDetailsViewModel(navigationStore, userStore, _carStore));
             RentCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore,
                 () => new UserMainViewModel(navigationStore, userStore));
         }

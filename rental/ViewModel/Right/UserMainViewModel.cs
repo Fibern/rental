@@ -18,8 +18,8 @@ namespace rental.ViewModel.Right
         public UserMainViewModel(NavigationStore navigationStore, UserStore userStore)
         {
             cars = ResourcesStore.Cars;
-            MoreCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, 
-                () => new CarDetailsViewModel(navigationStore, userStore, 0));
+            MoreCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, userStore, new CarStore(), 
+                () => new CarDetailsViewModel(navigationStore, userStore, new CarStore()));
         }
     }
 }

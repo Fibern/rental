@@ -11,13 +11,13 @@ namespace rental.ViewModel.Right
     {
         private NavigationStore _naviagationStore;
         private UserStore _userStore;
-        private int _carId;
+        private CarStore _carStore;
 
-        public CarDetailsViewModel(NavigationStore naviagationStore, UserStore userStore, int carId)
+        public CarDetailsViewModel(NavigationStore naviagationStore, UserStore userStore, CarStore carStore)
         {
             _naviagationStore = naviagationStore;
             _userStore = userStore;
-            _carId = carId;
+            _carStore = carStore;
         }
     }
 }
