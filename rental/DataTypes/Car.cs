@@ -19,5 +19,7 @@ namespace rental.DataTypes
             Name = name;
             IsRented = isRented;
         }
+
+        public Car() { IsRented = false; }
     }
 }

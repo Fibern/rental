@@ -1,4 +1,6 @@
-﻿using rental.Stores;
+﻿using Caliburn.Micro;
+using rental.DataTypes;
+using rental.Stores;
 using rental.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,12 +28,38 @@ namespace rental.Commands
 
         public override void Execute(object parameter)
         {
+
             var ID = parameter;
             if(ID == null)
             {
-                return;
+                List<Rent> rents = ResourcesStore.Rents;
+                foreach(var rent in rents)
+                {
+                    if (_userStore.User.Id == rent.UserId)
+                    {
+                        ID = rent.CarId;
+                        break;
+                    }
+                }
             }
-            string Id = ID.ToString();
+
+            if (ID != null)
+            {
+                ID = ID.ToString();
+                List<Car> cars = ResourcesStore.Cars;
+                foreach(Car car in cars)
+                {
+                    if(car.Id.ToString() == ID.ToString())
+                    { 
+                        _carStore.Car = car;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                _carStore.Car = null;
+            }
             _navigationStore.SelectedRight = _createViewModel();
         }
     }

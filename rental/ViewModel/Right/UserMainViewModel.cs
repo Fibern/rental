@@ -15,11 +15,13 @@ namespace rental.ViewModel.Right
     {
         public ICommand MoreCommand { get; set; }
         public BindableCollection<Car> cars { get; set; }
+        private CarStore _carStore;
         public UserMainViewModel(NavigationStore navigationStore, UserStore userStore)
         {
-            cars = ResourcesStore.Cars;
-            MoreCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, userStore, new CarStore(), 
-                () => new CarDetailsViewModel(navigationStore, userStore, new CarStore()));
+            _carStore = new CarStore();
+            cars = ResourcesStore.GetAvaliableCars();
+            MoreCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, userStore, _carStore, 
+                () => new CarDetailsViewModel(navigationStore, userStore, _carStore));
         }
     }
 }

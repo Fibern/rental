@@ -5,8 +5,55 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:rental.View.Right"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="LightBlue">
+    
+ 
     <Grid>
-            
+        <TextBlock Text="Brak wypożyczonego samochodu" 
+               FontSize="20" 
+               Foreground="White"
+               HorizontalAlignment="Center"
+               Visibility="{Binding Path=DataContext.IsNotVisible, RelativeSource={RelativeSource AncestorType=Grid}}"/>
+        <Grid Visibility="{Binding Path=DataContext.IsVisible, RelativeSource={RelativeSource AncestorType=Grid}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Name}" 
+               FontSize="20" 
+               Foreground="White"
+               HorizontalAlignment="Center"/>
+
+            <Grid Visibility="{Binding Path=DataContext.Visibility, RelativeSource={RelativeSource AncestorType=Grid}}"
+                  Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DatePicker SelectedDate="{Binding Path=DataContext.Date, RelativeSource={RelativeSource AncestorType=Grid}}"
+                            DisplayDateStart="{Binding StartDate, Mode=OneTime}"
+                            Width="200"
+                            Height="30"
+                            VerticalAlignment="Center">
+                </DatePicker>
+                <Button Content="Wypożycz" 
+                        Command="{Binding RentCommand}"
+                        CommandParameter="{Binding Path=DataContext.Date, RelativeSource={RelativeSource AncestorType=Grid}}"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Height="30"
+                        Width="100"/>
+            </Grid>
+
+            <Grid Visibility="{Binding Path=DataContext.Nvisibility, RelativeSource={RelativeSource AncestorType=Grid}}"
+                  Grid.Row="1">
+                <Button Content="Zwróć"
+                        Command="{Binding ReturnCommand}"
+                        VerticalAlignment="Center"
+                        Height="30"
+                        Width="100"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

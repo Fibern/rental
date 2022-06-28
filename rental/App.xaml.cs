@@ -20,8 +20,9 @@ namespace rental
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            NavigationStore navigationStore = new NavigationStore();
 
+
+            NavigationStore navigationStore = new NavigationStore();
             navigationStore.SelectedLeft = new SideMenuViewModel(navigationStore);
             navigationStore.SelectedRight = new LoginViewModel(navigationStore);
 
@@ -30,6 +31,7 @@ namespace rental
                 DataContext = new MainViewModel(navigationStore)
             };
             MainWindow.Show();
+
 
             base.OnStartup(e);
         }
