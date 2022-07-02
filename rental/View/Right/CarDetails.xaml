@@ -60,9 +60,15 @@
                             <TextBlock Text="Cena za dzień" FontWeight="Bold" TextAlignment="Center"/>
                             <TextBlock Text="{Binding Price}" FontWeight="Bold" TextAlignment="Center"/>
                         </StackPanel>
-                        <StackPanel Grid.Row="1" VerticalAlignment="Center" Background="White" Width="200">
+                        <StackPanel Grid.Row="1" VerticalAlignment="Center" Background="White" Width="200"
+                                    Visibility="{Binding Path=DataContext.Visibility, RelativeSource={RelativeSource AncestorType=Grid}}">
                             <TextBlock Text="Twoje saldo" FontWeight="Bold" TextAlignment="Center"/>
                             <TextBlock Text="{Binding Balance}" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Center" Background="White" Width="200"
+                                    Visibility="{Binding Path=DataContext.Nvisibility, RelativeSource={RelativeSource AncestorType=Grid}}">
+                            <TextBlock Text="Wypożyczony Do" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock Text="{Binding Expire}" FontWeight="Bold" TextAlignment="Center"/>
                         </StackPanel>
                     </Grid>                 
                 </DockPanel>

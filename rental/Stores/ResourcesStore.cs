@@ -24,6 +24,15 @@ namespace rental.Stores
             set => Serializer<List<Rent>>.Serialize(value, _path + "rent.Json");
         }
 
+        public static Rent GetRent(int CarID)
+        {
+            foreach (Rent rent in Rents)
+                if (rent.CarId == CarID)
+                    return rent;
+            return null;
+        }
+
+
         public static BindableCollection<Car> GetAvaliableCars()
         {
             BindableCollection<Car> cars = new BindableCollection<Car>();
@@ -84,6 +93,20 @@ namespace rental.Stores
                 {
                     car.IsRented = !car.IsRented;
                     Cars = cars;
+                    return;
+                }
+            }
+        }
+
+        public static void ChangeBalance(int userID, decimal value)
+        {
+            List<User> users = Users;
+            foreach(User user in users)
+            {
+                if(user.Id == userID)
+                {
+                    user.Balance = value;
+                    Users = users;
                     return;
                 }
             }

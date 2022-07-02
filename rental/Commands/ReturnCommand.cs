@@ -1,5 +1,7 @@
-﻿using rental.Stores;
+﻿using rental.DataTypes;
+using rental.Stores;
 using rental.ViewModel.Right;
+using System;
 
 namespace rental.Commands
 {
@@ -16,8 +18,12 @@ namespace rental.Commands
         }
         public override void Execute(object parameter)
         {
+            Rent rent = ResourcesStore.GetRent(_carStore.Car.Id);
+            int difference = (int)Math.Floor((rent.Expire - DateTime.Now).TotalDays);
+            ResourcesStore.ChangeBalance(_userStore.User.Id ,_userStore.User.Balance + difference * _carStore.Car.Price);
             ResourcesStore.ReturnCar(_carStore.Car.Id);
             _navigationStore.SelectedRight = new CarDetailsViewModel(_navigationStore, _userStore, _carStore);
+            _userStore.User.Balance += difference * _carStore.Car.Price;
         }
     }
 }

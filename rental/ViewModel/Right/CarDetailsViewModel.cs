@@ -1,4 +1,5 @@
 ﻿using rental.Commands;
+using rental.DataTypes;
 using rental.Stores;
 using System;
 using System.Windows;
@@ -30,6 +31,20 @@ namespace rental.ViewModel.Right
         public string Seats { get => _carStore.Car.Seats.ToString(); }
         public string Colour { get=> _carStore.Car.Colour; }
         public string StartDate { get => DateTime.Now.AddDays(1).ToString("yyyy.MM.dd"); }
+
+        public string Expire
+        {
+            get
+            {
+                Rent rent = ResourcesStore.GetRent(_carStore.Car.Id);
+                if (rent is null)
+                    return "";
+                else
+                {
+                    return rent.Expire.ToString("dd.MM.yyyy");
+                }
+            }
+        }
         
         private string _date;
         public string Date { 
