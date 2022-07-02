@@ -1,9 +1,12 @@
-﻿using rental.Stores;
+﻿using rental.Commands;
+using rental.Stores;
+using System.Windows.Input;
 
 namespace rental.ViewModel.Right
 {
     public class AccountViewModel : BaseViewModel
     {
+        public ICommand AddBalanceCommand { get; set; }
         public string Username { get => "Login: " + _userStore.User.Username; }
         public string Balance { get => "Saldo: " + _userStore.User.Balance.ToString(); }
         private UserStore _userStore;
@@ -12,6 +15,7 @@ namespace rental.ViewModel.Right
         {
             _navigationStore = navigationStore;
             _userStore = userStore;
+            AddBalanceCommand = new NavigateRightCommand<AddBalanceViewModel>(_navigationStore, () => new AddBalanceViewModel(_userStore, _navigationStore));
         }
     }
 }

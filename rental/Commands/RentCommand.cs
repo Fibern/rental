@@ -9,7 +9,7 @@ namespace rental.Commands
         private readonly UserStore _userStore;
         private readonly CarStore _carStore;
         private readonly NavigationStore _navigationStore;
-        public RentCommand(UserStore userStore ,CarStore carStore, NavigationStore navigationStore)
+        public RentCommand(UserStore userStore, CarStore carStore, NavigationStore navigationStore)
         {
             _userStore = userStore;
             _carStore = carStore;

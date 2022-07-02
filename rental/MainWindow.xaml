@@ -54,6 +54,10 @@
                 <DataTemplate DataType="{x:Type viewModelsright:CarDetailsViewModel}">
                     <viewsright:CarDetails/>
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModelsright:AddBalanceViewModel}">
+                    <viewsright:AddBalance/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>
