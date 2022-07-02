@@ -1,12 +1,6 @@
 ﻿using rental.Stores;
 using rental.ViewModel;
-using rental.ViewModel.Left;
-using rental.ViewModel.Right;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rental.Commands
 {

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:rental.View.Left"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="160"
+             d:DesignHeight="500" d:DesignWidth="160"
              Background="IndianRed">
     <UserControl.Resources>
         <Style TargetType="Button">

@@ -5,9 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:rental.View.Right"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="500" d:DesignWidth="800"
              Background="LightBlue">
-    
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
  
     <Grid>
         <TextBlock Text="Brak wypożyczonego samochodu" 
@@ -15,8 +20,10 @@
                Foreground="White"
                HorizontalAlignment="Center"
                Visibility="{Binding Path=DataContext.IsNotVisible, RelativeSource={RelativeSource AncestorType=Grid}}"/>
+       
         <Grid Visibility="{Binding Path=DataContext.IsVisible, RelativeSource={RelativeSource AncestorType=Grid}}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -25,8 +32,82 @@
                Foreground="White"
                HorizontalAlignment="Center"/>
 
+            <Grid Grid.Row="1" Height="350" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="LightBlue" Height="200" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding Image}"  Height="180" Width="320" Margin="20 0 0 0"/>
+                    <Grid Height="180">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" VerticalAlignment="Center" Background="White" Width="200">
+                            <TextBlock Text="Cena za dzień" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock Text="{Binding Price}" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Center" Background="White" Width="200">
+                            <TextBlock Text="Twoje saldo" FontWeight="Bold" TextAlignment="Center"/>
+                            <TextBlock Text="{Binding Balance}" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>                 
+                </DockPanel>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Marka" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Brand}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Model" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Rok produkcji" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Year}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Pojemność skokowa" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding EngineCapacity}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Rodzaj paliwa" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding FuelType}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Moc" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Power}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="Spalanie na 100 km" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding FuelUsage}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="Skrzynia Biegów" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding Transmission}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="Napęd" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding Drive}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="2" Text="Typ nadwozia" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding BodyStyle}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="2" Text="Liczba miejsc" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding Seats}" Margin="0 0 10 0"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="2" Text="Kolor" Margin="0 0 10 0" FontWeight="Bold"/>
+                <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Colour}" Margin="0 0 10 0"/>
+
+            </Grid>    
+
+            
             <Grid Visibility="{Binding Path=DataContext.Visibility, RelativeSource={RelativeSource AncestorType=Grid}}"
-                  Grid.Row="1">
+                  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -47,7 +128,7 @@
             </Grid>
 
             <Grid Visibility="{Binding Path=DataContext.Nvisibility, RelativeSource={RelativeSource AncestorType=Grid}}"
-                  Grid.Row="1">
+                  Grid.Row="2">
                 <Button Content="Zwróć"
                         Command="{Binding ReturnCommand}"
                         VerticalAlignment="Center"

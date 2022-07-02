@@ -5,11 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:rental.View.Right"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="640"
+             d:DesignHeight="450" d:DesignWidth="800"
              Background="LightBlue">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding cars}" Margin="0 10 0 0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Model" Grid.Column="1" Margin="10 0 10 0"
+                           Foreground="White" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="Cena" Grid.Column="2"
+                           Foreground="White" FontWeight="Bold"></TextBlock>
+            </Grid>
+        </Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding cars}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderThickness="0" Background="White"
@@ -19,14 +38,19 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Name}" Grid.Column="0"></TextBlock>
-                                    <TextBlock Text="{Binding Price}" Grid.Column="1"></TextBlock>
+                                    <Image Source="C:\Users\JD\source\repos\rental\rental\Resources\Images\AudiA3.png" 
+                                           Height="100" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="{Binding DPrice}" Grid.Column="2" VerticalAlignment="Center"></TextBlock>
                                     <Button Content="Więcej" 
                                             Command="{Binding Path=DataContext.MoreCommand, 
                                                               RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                             CommandParameter="{Binding Id}"
-                                            Grid.Column="2"></Button>
+                                            Grid.Column="3"
+                                            Width="100"
+                                            Height="30"></Button>
                                 </Grid>
                         </Border>
                     </DataTemplate>

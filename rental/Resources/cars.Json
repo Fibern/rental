@@ -1,1 +1,20 @@
-[{"Id":0,"Price":10,"Name":"Audi","IsRented":false},{"Id":1,"Price":1,"Name":"Skoda","IsRented":false},{"Id":2,"Price":1,"Name":"Mercedes","IsRented":false},{"Id":3,"Price":1,"Name":"Opel","IsRented":false},{"Id":4,"Price":1,"Name":"Seat","IsRented":false},{"Id":5,"Price":1,"Name":"Fiat","IsRented":false},{"Id":6,"Price":1,"Name":"Dodge","IsRented":false},{"Id":7,"Price":1,"Name":"Toyota","IsRented":false},{"Id":8,"Price":1,"Name":"Suzuki","IsRented":false}]
+[
+  {
+    "Id": 0,
+    "Price": 200,
+    "Brand": "Audi",
+    "Model": "A3",
+    "Year": 2015,
+    "EngineCapacity": 1984,
+    "FuelType": "Benzyna",
+    "HorsePower": 220,
+    "Transmission": "Automatyczna",
+    "Drive": "4x4",
+    "FuelUsage": 5.8,
+    "BodyStyle": "Sedan",
+    "Seats": 5,
+    "Colour": "Srebrny",
+    "IsRented": false,
+    "Image": "AudiA3.png"
+  }
+]
