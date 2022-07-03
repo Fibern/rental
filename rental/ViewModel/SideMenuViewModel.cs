@@ -10,8 +10,8 @@ namespace rental.ViewModel
         public ICommand Login { get; set; }
         public SideMenuViewModel(NavigationStore navigationStore)
         {
-            Register = new NavigateRightCommand<RegisterViewModel>(navigationStore, () => new RegisterViewModel(navigationStore));
-            Login = new NavigateRightCommand<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore));
+            Register = new NavigateCommand<RegisterViewModel>(navigationStore, () => new RegisterViewModel(navigationStore), false);
+            Login = new NavigateCommand<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore), false);
         }
     }
 }

@@ -19,11 +19,11 @@ namespace rental.ViewModel
             _carStore = new CarStore();
             LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore,
                 () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
-            ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore,
-                () => new AccountViewModel(navigationStore, userStore));
+            ProfileCommand = new NavigateCommand<AccountViewModel>(navigationStore,
+                () => new AccountViewModel(navigationStore, userStore), false);
             RentedCommand = new MoreCommand(navigationStore, userStore, _carStore);
-            RentCommand = new NavigateRightCommand<UserMainViewModel>(navigationStore,
-                () => new UserMainViewModel(navigationStore, userStore));
+            RentCommand = new NavigateCommand<UserMainViewModel>(navigationStore,
+                () => new UserMainViewModel(navigationStore, userStore), false);
         }
     }
 }

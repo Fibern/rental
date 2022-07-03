@@ -8,14 +8,14 @@ namespace rental.ViewModel
     {
         public ICommand AddBalanceCommand { get; set; }
         public string Username { get => "Login: " + _userStore.User.Username; }
-        public string Balance { get => "Saldo: " + _userStore.User.Balance.ToString(); }
+        public string Balance { get => "Saldo: " + _userStore.User.Balance.ToString() + " zł"; }
         private UserStore _userStore;
         private NavigationStore _navigationStore;
         public AccountViewModel(NavigationStore navigationStore, UserStore userStore)
         {
             _navigationStore = navigationStore;
             _userStore = userStore;
-            AddBalanceCommand = new NavigateRightCommand<AddBalanceViewModel>(_navigationStore, () => new AddBalanceViewModel(_userStore, _navigationStore));
+            AddBalanceCommand = new NavigateCommand<AddBalanceViewModel>(_navigationStore, () => new AddBalanceViewModel(_userStore, _navigationStore), false);
         }
     }
 }
