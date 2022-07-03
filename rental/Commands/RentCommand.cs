@@ -1,5 +1,5 @@
 ﻿using rental.Stores;
-using rental.ViewModel.Right;
+using rental.ViewModel;
 using System;
 
 namespace rental.Commands

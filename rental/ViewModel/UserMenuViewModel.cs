@@ -1,9 +1,8 @@
 ﻿using rental.Commands;
 using rental.Stores;
-using rental.ViewModel.Right;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Left
+namespace rental.ViewModel
 {
     public class UserMenuViewModel : BaseViewModel
     {
@@ -18,7 +17,7 @@ namespace rental.ViewModel.Left
         {
             _userstore = userStore;
             _carStore = new CarStore();
-            LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore, 
+            LogoutCommand = new LogoutCommand<SideMenuViewModel, LoginViewModel>(navigationStore,
                 () => new SideMenuViewModel(navigationStore), () => new LoginViewModel(navigationStore));
             ProfileCommand = new NavigateRightCommand<AccountViewModel>(navigationStore,
                 () => new AccountViewModel(navigationStore, userStore));

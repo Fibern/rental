@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace rental.ViewModel.Right
+namespace rental.ViewModel
 {
     public class CarDetailsViewModel : BaseViewModel
     {
@@ -18,7 +18,7 @@ namespace rental.ViewModel.Right
         public string Name { get => _carStore.Car.Name; }
         public string Price { get => _carStore.Car.Price.ToString() + " zł"; }
         public string Balance { get => _userStore.User.Balance.ToString() + " zł"; }
-        public string Brand { get=> _carStore.Car.Brand; }
+        public string Brand { get => _carStore.Car.Brand; }
         public string Model { get => _carStore.Car.Model; }
         public string Year { get => _carStore.Car.Year.ToString(); }
         public string EngineCapacity { get => _carStore.Car.EngineCapacity.ToString() + " cm3"; }
@@ -29,7 +29,7 @@ namespace rental.ViewModel.Right
         public string Drive { get => _carStore.Car.Drive; }
         public string BodyStyle { get => _carStore.Car.BodyStyle; }
         public string Seats { get => _carStore.Car.Seats.ToString(); }
-        public string Colour { get=> _carStore.Car.Colour; }
+        public string Colour { get => _carStore.Car.Colour; }
         public string StartDate { get => DateTime.Now.AddDays(1).ToString("yyyy.MM.dd"); }
 
         public string Expire
@@ -45,9 +45,10 @@ namespace rental.ViewModel.Right
                 }
             }
         }
-        
+
         private string _date;
-        public string Date { 
+        public string Date
+        {
             get => _date;
             set
             {
@@ -55,7 +56,7 @@ namespace rental.ViewModel.Right
                 OnPropertyChanged(nameof(Date));
                 RentCommand = new RentCommand(_userStore, _carStore, _naviagationStore);
                 OnPropertyChanged(nameof(RentCommand));
-            } 
+            }
         }
         public Visibility IsVisible { get; set; }
         public Visibility IsNotVisible { get; set; }
@@ -63,7 +64,7 @@ namespace rental.ViewModel.Right
         public Visibility Nvisibility { get; set; }
         public ICommand RentCommand { get; set; }
         public ICommand ReturnCommand { get; set; }
-        public BitmapImage Image { get => new BitmapImage(new Uri(@"..\..\Resources\Images\" + _carStore.Car.Image, UriKind.Relative)); } 
+        public BitmapImage Image { get => new BitmapImage(new Uri(@"..\..\Resources\Images\" + _carStore.Car.Image, UriKind.Relative)); }
 
         public CarDetailsViewModel(NavigationStore naviagationStore, UserStore userStore, CarStore carStore)
         {

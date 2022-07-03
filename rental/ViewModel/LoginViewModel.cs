@@ -1,16 +1,15 @@
 ﻿using rental.Commands;
 using rental.Stores;
-using rental.ViewModel.Left;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Right
+namespace rental.ViewModel
 {
-    public class LoginViewModel: BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         public ICommand LoginCommand { get; set; }
 
         private AuthenticationStore _authenticationStore;
-        public string Login 
+        public string Login
         {
             get => _authenticationStore.Login;
             set => _authenticationStore.Login = value;

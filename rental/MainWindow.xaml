@@ -4,11 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rental"
-        xmlns:viewsleft="clr-namespace:rental.View.Left"
-        xmlns:viewsright="clr-namespace:rental.View.Right"
+        xmlns:views="clr-namespace:rental.View"
         xmlns:viewModels="clr-namespace:rental.ViewModel"
-        xmlns:viewModelsleft="clr-namespace:rental.ViewModel.Left"
-        xmlns:viewModelsright="clr-namespace:rental.ViewModel.Right"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
     <Grid>
@@ -20,12 +17,12 @@
         <ContentControl Grid.Column="0"
                         Content="{Binding SelectedLeft}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModelsleft:SideMenuViewModel}">
-                    <viewsleft:SideMenu/>
+                <DataTemplate DataType="{x:Type viewModels:SideMenuViewModel}">
+                    <views:SideMenu/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModelsleft:UserMenuViewModel}">
-                    <viewsleft:UserMenu/>
+                <DataTemplate DataType="{x:Type viewModels:UserMenuViewModel}">
+                    <views:UserMenu/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
@@ -33,30 +30,30 @@
         <ContentControl Grid.Column="1"
                         Content="{Binding SelectedRight}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModelsright:LoginViewModel}">
-                    <viewsright:Login/>
+                <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+                    <views:Login/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModelsright:UserMainViewModel}">
-                    <viewsright:UserMain/>
+                <DataTemplate DataType="{x:Type viewModels:UserMainViewModel}">
+                    <views:UserMain/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModelsright:RegisterViewModel}">
-                    <viewsright:Register/>
-                </DataTemplate>
-
-
-                <DataTemplate DataType="{x:Type viewModelsright:AccountViewModel}">
-                    <viewsright:Account/>
+                <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
+                    <views:Register/>
                 </DataTemplate>
 
 
-                <DataTemplate DataType="{x:Type viewModelsright:CarDetailsViewModel}">
-                    <viewsright:CarDetails/>
+                <DataTemplate DataType="{x:Type viewModels:AccountViewModel}">
+                    <views:Account/>
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewModelsright:AddBalanceViewModel}">
-                    <viewsright:AddBalance/>
+
+                <DataTemplate DataType="{x:Type viewModels:CarDetailsViewModel}">
+                    <views:CarDetails/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:AddBalanceViewModel}">
+                    <views:AddBalance/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

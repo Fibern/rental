@@ -2,7 +2,7 @@
 using rental.Stores;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Right
+namespace rental.ViewModel
 {
     public class AccountViewModel : BaseViewModel
     {

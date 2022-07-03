@@ -1,9 +1,8 @@
-﻿<UserControl x:Class="rental.View.Right.Login"
+﻿<UserControl x:Class="rental.View.Register"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:rental.View.Right"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800"
              Background="LightBlue">
@@ -20,7 +19,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        
         <TextBlock Text="Login:"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
@@ -34,7 +33,7 @@
                  Grid.Row="1"
                  Grid.Column="1"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Login}"/>
+                 Text="{Binding Path=Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Hasło:"
                    VerticalAlignment="Center"
@@ -53,12 +52,10 @@
 
         <Button Width="100"
                 Height="30"
-                Content="Zaloguj"
-                Command="{Binding LoginCommand}"
+                Content="Zarejsetruj"
+                Command="{Binding RegisterCommand}"
                 CommandParameter="{Binding ElementName=pwd}"
-                Grid.Row="3"
                 Grid.Column="1"
-                />
-        
+                Grid.Row="3"/>
     </Grid>
 </UserControl>

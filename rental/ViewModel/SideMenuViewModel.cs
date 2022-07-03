@@ -1,11 +1,10 @@
 ﻿using rental.Commands;
 using rental.Stores;
-using rental.ViewModel.Right;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Left
+namespace rental.ViewModel
 {
-    public class SideMenuViewModel: BaseViewModel
+    public class SideMenuViewModel : BaseViewModel
     {
         public ICommand Register { get; set; }
         public ICommand Login { get; set; }

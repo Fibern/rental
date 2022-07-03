@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace rental.View.Right
+namespace rental.View
 {
     /// <summary>
     /// Logika interakcji dla klasy Account.xaml

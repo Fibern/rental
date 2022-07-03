@@ -1,21 +1,16 @@
 ﻿using rental.Commands;
 using rental.Stores;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Right
+namespace rental.ViewModel
 {
     class AddBalanceViewModel : BaseViewModel
     {
         private UserStore _userStore;
         private NavigationStore _navigationStore;
         private string _balance;
-        public string Balance 
-        { 
+        public string Balance
+        {
             get => _balance;
             set
             {
@@ -25,8 +20,8 @@ namespace rental.ViewModel.Right
             }
         }
         private ICommand _addBalanceCommand;
-        public ICommand AddBalanceCommand 
-        { 
+        public ICommand AddBalanceCommand
+        {
             get => _addBalanceCommand;
             set
             {

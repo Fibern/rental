@@ -2,9 +2,9 @@
 using rental.Stores;
 using System.Windows.Input;
 
-namespace rental.ViewModel.Right
+namespace rental.ViewModel
 {
-    class RegisterViewModel: BaseViewModel
+    class RegisterViewModel : BaseViewModel
     {
         public ICommand RegisterCommand { get; set; }
 
