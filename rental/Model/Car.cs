@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace rental.DataTypes
+namespace rental.Model
 {
     public class Car
     {

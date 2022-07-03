@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
 using rental.Commands;
-using rental.DataTypes;
+using rental.Model;
 using rental.Stores;
 using System.Windows.Input;
 

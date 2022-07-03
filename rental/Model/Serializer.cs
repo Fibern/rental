@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.IO;
 
-namespace rental.DataTypes
+namespace rental.Model
 {
     public static class Serializer<T>
     {

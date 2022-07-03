@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using rental.DataTypes;
+using rental.Model;
 using System;
 using System.Collections.Generic;
 

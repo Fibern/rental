@@ -1,5 +1,5 @@
 ﻿using rental.Commands;
-using rental.DataTypes;
+using rental.Model;
 using rental.Stores;
 using System;
 using System.Windows;

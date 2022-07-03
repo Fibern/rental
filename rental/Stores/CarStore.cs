@@ -1,4 +1,4 @@
-﻿using rental.DataTypes;
+﻿using rental.Model;
 
 namespace rental.Stores
 {

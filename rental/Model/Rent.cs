@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace rental.DataTypes
+namespace rental.Model
 {
     public class Rent
     {
