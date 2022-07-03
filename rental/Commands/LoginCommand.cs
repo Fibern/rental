@@ -3,8 +3,10 @@ using rental.Stores;
 using rental.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Security.Cryptography;
 
 namespace rental.Commands
 {
@@ -30,7 +32,9 @@ namespace rental.Commands
         public override void Execute(object parameter)
         {
             var passwordBox = parameter as PasswordBox;
-            _authenticationStore.Password = passwordBox.Password;
+            var sha1 = new SHA1CryptoServiceProvider();
+            var hash = Convert.ToHexString(sha1.ComputeHash(Encoding.UTF8.GetBytes(passwordBox.Password)));
+            _authenticationStore.Password = hash;
             User user = authorize();
             if (user is null)
                 return;

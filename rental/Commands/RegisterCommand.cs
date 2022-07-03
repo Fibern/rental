@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace rental.Commands
 {
@@ -23,7 +25,10 @@ namespace rental.Commands
         public override bool CanExecute(object parameter)
         {
             var passwordBox = parameter as PasswordBox;
-            _authenticationStore.Password = passwordBox.Password;
+            var sha1 = new SHA1CryptoServiceProvider();
+            var hash = Convert.ToHexString(sha1.ComputeHash(Encoding.UTF8.GetBytes(passwordBox.Password)));
+            
+            _authenticationStore.Password = hash;
             List<User> users = ResourcesStore.Users;
             foreach (User u in users)
             {
