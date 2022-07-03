@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
+using System.Windows.Media.Imaging;
 
 namespace rental.Model
 {
@@ -25,7 +27,8 @@ namespace rental.Model
         public string Name { get => Brand + " " + Model; }
         [JsonIgnore]
         public string DPrice { get => Price.ToString() + " zł/dzień"; }
-
+        [JsonIgnore]
+        public BitmapImage Dpath { get => new BitmapImage(new Uri(@"..\..\Resources\Images\" + Image, UriKind.Relative)); }
         public Car()        {
             Id = 0;
             Price = 0;

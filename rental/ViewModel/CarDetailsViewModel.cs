@@ -64,7 +64,7 @@ namespace rental.ViewModel
         public Visibility Nvisibility { get; set; }
         public ICommand RentCommand { get; set; }
         public ICommand ReturnCommand { get; set; }
-        public BitmapImage Image { get => new BitmapImage(new Uri(@"..\..\Resources\Images\" + _carStore.Car.Image, UriKind.Relative)); }
+        public BitmapImage Image { get => _carStore.Car.Dpath; }
 
         public CarDetailsViewModel(NavigationStore naviagationStore, UserStore userStore, CarStore carStore)
         {

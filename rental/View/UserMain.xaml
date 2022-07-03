@@ -39,7 +39,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="C:\Users\JD\source\repos\rental\rental\Resources\Images\AudiA3.png" 
+                                    <Image Source="{Binding Dpath}" 
                                            Height="100" HorizontalAlignment="Left"/>
                                     <TextBlock Text="{Binding Name}" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
                                     <TextBlock Text="{Binding DPrice}" Grid.Column="2" VerticalAlignment="Center"></TextBlock>
