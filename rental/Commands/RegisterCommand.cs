@@ -10,16 +10,13 @@ using System.Text;
 
 namespace rental.Commands
 {
-    public class RegisterCommand<TViewModel> : CommandBase
-        where TViewModel : BaseViewModel
+    public class RegisterCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
-        private readonly Func<TViewModel> _viewModel;
         private readonly AuthenticationStore _authenticationStore;
-        public RegisterCommand(NavigationStore navigationStore, Func<TViewModel> viewModel, AuthenticationStore authenticationStore)
+        public RegisterCommand(NavigationStore navigationStore, AuthenticationStore authenticationStore)
         {
             _navigationStore = navigationStore;
-            _viewModel = viewModel;
             _authenticationStore = authenticationStore;
         }
         public override bool CanExecute(object parameter)
@@ -51,7 +48,7 @@ namespace rental.Commands
             List<User> users = ResourcesStore.Users;
             users.Add(new User(users.Count, _authenticationStore.Login, _authenticationStore.Password, 0));
             ResourcesStore.Users = users;
-            _navigationStore.SelectedRight = _viewModel();
+            _navigationStore.SelectedRight = new LoginViewModel(_navigationStore);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace rental.ViewModel
         public RegisterViewModel(NavigationStore navigationStore)
         {
             _authenticationStore = new AuthenticationStore();
-            RegisterCommand = new RegisterCommand<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore), _authenticationStore);
+            RegisterCommand = new RegisterCommand(navigationStore, _authenticationStore);
         }
     }
 }

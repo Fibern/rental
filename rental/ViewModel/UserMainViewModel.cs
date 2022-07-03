@@ -15,8 +15,7 @@ namespace rental.ViewModel
         {
             _carStore = new CarStore();
             cars = ResourcesStore.GetAvaliableCars();
-            MoreCommand = new MoreCommand<CarDetailsViewModel>(navigationStore, userStore, _carStore,
-                () => new CarDetailsViewModel(navigationStore, userStore, _carStore));
+            MoreCommand = new MoreCommand(navigationStore, userStore, _carStore);
         }
     }
 }

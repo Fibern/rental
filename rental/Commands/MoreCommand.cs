@@ -6,18 +6,15 @@ using System.Collections.Generic;
 
 namespace rental.Commands
 {
-    public class MoreCommand<TViewModel> : CommandBase
-        where TViewModel : BaseViewModel
+    public class MoreCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
         private readonly UserStore _userStore;
-        private readonly Func<TViewModel> _createViewModel;
         private CarStore _carStore;
 
-        public MoreCommand(NavigationStore navigationStore, UserStore userStore, CarStore carStore, Func<TViewModel> createViewModel)
+        public MoreCommand(NavigationStore navigationStore, UserStore userStore, CarStore carStore)
         {
             _navigationStore = navigationStore;
-            _createViewModel = createViewModel;
             _carStore = carStore;
             _userStore = userStore;
         }
@@ -56,7 +53,7 @@ namespace rental.Commands
             {
                 _carStore.Car = null;
             }
-            _navigationStore.SelectedRight = _createViewModel();
+            _navigationStore.SelectedRight = new CarDetailsViewModel(_navigationStore, _userStore, _carStore);
         }
     }
 }
