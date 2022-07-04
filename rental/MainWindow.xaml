@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:rental.View"
         xmlns:viewModels="clr-namespace:rental.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1000">
+        Title="Wypożyczalnia" Height="500" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
